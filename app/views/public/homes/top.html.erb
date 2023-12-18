@@ -1,2 +1,29 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div>
+  <div class="mx-auto my-3">
+    <p>
+      ようこそ、ながのCakeへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。
+    </p>
+  </div>
+  <div class="container">
+    <h2>新着商品</h2>
+    <div class="row">
+      <% @items.each do |item| %>
+       <div class="col-md-3 col-sm-6 d-flex justify-content-around ">
+         <div class="">
+           <!--リンク先の追加-->
+          <p class=""><%#= link to do %>
+          画像
+          <%# end %>
+          </p>
+          <p class=""><%= item.name %></p>
+          <p class=""><%= item.price %></p>
+        </div>
+      <% end %>
+    </div>
+    <!--リンク先の追加-->
+    <div><%= link_to "全ての商品を見る>" %></div>
+  </div>
+</div>
