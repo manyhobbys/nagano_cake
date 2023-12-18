@@ -1,5 +1,9 @@
 <h5>注文情報入力</h5>
 
 <h5>支払方法</h5>
+  <%= form.radio_button :payment_method, :0 %>
+  <%= form.label :payment_method, "クレジットカード" %><br>
+  <%= form.radio_button :payment_method, :1 %>
+  <%= form.label :payment_method, "銀行振込" %>
 
 <h5>お届け先</h5>
