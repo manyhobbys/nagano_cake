@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <!--colの数字を追加-->
+    <div class="col-sm-">
+      <h1>商品一覧(全<%= @items.count %>件)</h1>
+  </div>
+  </div>
+
+  <div class="row">
+    <% @item.each do |item| %>
+    <!--colの数字の追加-->
+    <div class="col-sm-">
+      <!--public/items/showのパスを記述-->
+      <%= link_to do %>
+        <%= item.image %>
+      <% end %>
+      <%= item.name %>
+      <%= item.price %>
+    </div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= paginate @item %>
+  </div>
+</div>
