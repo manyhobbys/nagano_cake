@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
   def show
+    @user = current_customer
   end
 
   def edit
@@ -7,5 +8,5 @@ class Public::CustomersController < ApplicationController
 
   def unsubscribe
   end
-  
+
 end
