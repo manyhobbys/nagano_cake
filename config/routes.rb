@@ -9,15 +9,14 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :public do
+
+  scope module: :public do
     resources :items, only: [:index, :show]
-    resources :registrations, only: [:new, :create]
-    resources :sessions, only: [:new, :create, :destroy]
-    resources :customers, only: [:edit, :update] do
-      get "unsubscribe" => "customers#unsubscribe"
-      patch "withdraw" => "customers#withdraw"
-      get "my_page" => "cutomers#show"
-    end
+    resources :customers, only: [:edit, :update] 
+      get "customers/unsubscribe" => "customers#unsubscribe"
+      patch "customers/withdraw" => "customers#withdraw"
+      get "customers/my_page" => "customers#show"
+    
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete "/" => "cart_items#destroy_all"
@@ -44,6 +43,6 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
 
-  devise_for :users
+ 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
