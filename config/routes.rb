@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    resources :sessions, only: [:new, :create, :destroy]
     root to: "homes#top"
   end
   
