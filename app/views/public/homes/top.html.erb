@@ -14,7 +14,7 @@
        <div class="col-md-3 col-sm-6 d-flex justify-content-around ">
         <div class="">
           <p class="">
-            <%= link to public_item_path(item.id) do %>
+            <%= link to item_path(item.id) do %>
               画像
             <% end %>
           </p>
@@ -24,6 +24,6 @@
       <% end %>
     </div>
     <!--リンク先の追加-->
-    <div><%= link_to "全ての商品を見る>", public_items_path %></div>
+    <div><%= link_to "全ての商品を見る>", items_path %></div>
   </div>
 </div>
