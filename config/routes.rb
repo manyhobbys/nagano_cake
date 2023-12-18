@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
 
+
   scope module: :public do
     resources :items, only: [:index, :show]
     resources :customers, only: [:edit, :update] 
