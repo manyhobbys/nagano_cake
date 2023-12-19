@@ -10,51 +10,37 @@
       <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
         <table>
           <tr>
-            <div class="form_group">
-              <th><%= f.label :商品画像 %></th>
+            <th><%= f.label :商品画像 %></th>
 <!--acceptの追加-->
-              <th><%= f.file_field :image %></th>
-            </div>
+            <th><%= f.file_field :image %></th>
           </tr>
           <tr>
-            <div class="form_group">
-              <th><%= f.label :商品名 %></th>
-              <td><%= f.text_field :name, placeholder: "商品名" %></td>
-            </div>
+            <th><%= f.label :商品名 %></th>
+            <td><%= f.text_field :name, placeholder: "商品名" %></td>
           </tr>
           <tr>
-            <div class="form_group">
-               <th><%= f.label :商品説明 %></th>
-               <td><%= f.text_area :introduction, size: "50x3", placeholder: "ここに説明文を記述します" %></td>
-            </div>
+            <th><%= f.label :商品説明 %></th>
+            <td><%= f.text_area :introduction, size: "50x3", placeholder: "ここに説明文を記述します" %></td>
           </tr>
           <tr>
-            <div class="form_group">
-              <th><%= f.label :ジャンル %></th>
-              <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></td>
-            </div>
+            <th><%= f.label :ジャンル %></th>
+            <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></td>
           </tr>
           <tr>
-            <div class="form_group">
-              <th><%= f.label :税抜価格 %></th>
-              <td><%= f.text_field :price, placeholder: "1000"  %> 円</td>
-            </div>
+            <th><%= f.label :税抜価格 %></th>
+            <td><%= f.text_field :price, placeholder: "1000" %> 円</td>
           </tr>
           <tr>
-            <div class="form_group">
-              <th><%= f.label :販売ステータス %></th>
-              <td>
-                <%= f.radio_button :is_active, true %>
-                <%= f.label :is_active, "販売中" %>
-                <%= f.radio_button :is_active, false %>
-                <%= f.label :is_active, "販売停止中" %>
-              </td>
-            </div>
+            <th><%= f.label :販売ステータス %></th>
+            <td>
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, "販売中" %>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+            </td>
           </tr>
           <tr>
-            <div>
-               <th><%= f.submit "新規登録", class: "btn btn-success" %></th>
-            </div>
+            <th><%= f.submit "新規登録", class: "btn btn-success" %></th>
           </tr>
         </table>
       <% end %>

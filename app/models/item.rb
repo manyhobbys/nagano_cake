@@ -14,8 +14,11 @@ class Item < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def add_tax_price
+    (self.price * 1.10).round
+  end
+
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
-  validates :is_active, presence: true
 end
