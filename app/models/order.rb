@@ -8,14 +8,14 @@ class Order < ApplicationRecord
     validates :payment_method
     validates :total_payment
     validates :shipping_cost
-    varidates :postal_code
+    validates :postal_code
     validates :address
     validates :name
     validates :status
   end
 
   enum payment_method: { credit_card: 0, transfer: 1}
-# 入金待ち0, 入金確認1, 製作中2, 発送準備中3, 発送済み4
+  # 入金待ち0, 入金確認1, 製作中2, 発送準備中3, 発送済み4
   enum status: {wait_for_payment: 0, payment_confirmation: 1, in_making: 2, preparing_delivery: 3, delivered: 4}
 
   def postal_code_and_address_and_name
