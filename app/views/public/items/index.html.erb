@@ -1,26 +1,30 @@
 <div class="container">
   <div class="row">
-    <!--colの数字を追加-->
-    <div class="col-sm-">
-      <h1>商品一覧(全<%= @items.count %>件)</h1>
-  </div>
+    <div class="col-sm-12 px-sm-0">
+      <h2>商品一覧(全<%= @items.count %>件)</h2>
   </div>
 
-  <div class="row">
+  <div class="row ">
     <% @item.each do |item| %>
-    <!--colの数字の追加-->
-    <div class="col-sm-">
-      <!--public/items/showのパスを記述-->
-      <%= link_to  do %>
-        <%= item.image %>
-      <% end %>
-      <%= item.name %>
-      <%= item.price %>
-    </div>
+      <div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
+        <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
+          <%= link_to item(item.id) do %>
+            <%= item.get_image(400,200) %>
+          <% end %>
+          <div class="card-body">
+            <p class="card-text"><%= item.name %></p>
+            <% if item.is_active == true %>
+              <p class="card-text"><%= item.price %></p>
+            <% else %>
+              <p class="card-text font-weight-bold">販売停止中</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-  
+
   <div>
-    <%= paginate @item %>
+    <%= paginate @item, class: "text-center" %>
   </div>
 </div>
