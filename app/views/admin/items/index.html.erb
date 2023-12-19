@@ -19,23 +19,29 @@
         </thead>
         <tbody>
           <% @items.each do |item| %>
-            <td>
-              <%= item.id %>
-            </td>
-            <td>
-              <%= link_to admin_item_path(item.id) do %>
-                <%= item.name %>
-              <% end %>
-            </td>
-            <td>
-              <%= item.price %>
-            </td>
-            <td>
-              <%= item.genre.name %>
-            </td>
-            <td>
-              <%= item.is_active %>
-            </td>
+            <tr>
+              <td>
+                <%= item.id %>
+              </td>
+              <td>
+                <%= link_to admin_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= item.price.to_s(:delimited) %>
+              </td>
+              <td>
+                <%= item.genre.name %>
+              </td>
+              <td>
+                <% if item.is_active == true %>
+                  <label class="text-success">販売中</label>
+                <% else %>
+                  <label class="text-danger">販売停止中</label>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>

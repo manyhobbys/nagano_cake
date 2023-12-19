@@ -1,22 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 px-sm-0">
+<div>
+  <div>
+    <div>
       <h2>商品一覧(全<%= @items.count %>件)</h2>
   </div>
 
-  <div class="row ">
+  <div>
     <% @item.each do |item| %>
-      <div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
-        <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
-          <%= link_to item(item.id) do %>
-            <%= item.get_image(400,200) %>
+      <div>
+        <div>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_image(400,200) %>
           <% end %>
-          <div class="card-body">
-            <p class="card-text"><%= item.name %></p>
+          <div>
+            <p><%= item.name %></p>
             <% if item.is_active == true %>
-              <p class="card-text"><%= item.price %></p>
+              <p>¥ <%= item.price.to_s(:delimited) %></p>
             <% else %>
-              <p class="card-text font-weight-bold">販売停止中</p>
+              <p>販売停止中</p>
             <% end %>
           </div>
         </div>

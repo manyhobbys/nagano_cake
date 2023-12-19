@@ -1,5 +1,5 @@
 <div>
-  <div class="mx-auto my-3">
+  <div>
     <p>
       ようこそ、ながのCakeへ！<br>
       このサイトは、ケーキ販売のECサイトになります。<br>
@@ -7,28 +7,28 @@
       購入には会員登録が必要になります。
     </p>
   </div>
-  
-  <div class="container">
+
+  <div>
     <h2>新着商品</h2>
-    <div class="row">
+    <div>
       <% @items.first(4).each do |item| %>
-        <div class="col-md-3 col-sm-6 d-flex justify-content-around ">
-          <div class="card">
-            <%= link to item_path(item.id) do %>
-              <%= item.get_image(100,100) %>
+        <div>
+          <div>
+            <%= link_to item_path(item.id) do %>
+              <%=image_tag item.get_image(200,400) %>
             <% end %>
           </div>
-          <div class="card-body">
-            <p class="card-text"><%= item.name %></p>
+          <div>
+            <p><%= item.name %></p>
             <% if item.is_active == true %>
-              <p class="card-text"><%= item.price %></p>
+              <p><%= item.price %></p>
             <% else %>
-              <p class="card-text">販売停止中</p>
+              <p>販売停止中</p>
             <% end %>
-            </div>
           </div>
         </div>
       <% end %>
     </div>
     <div><%= link_to "全ての商品を見る>", items_path %></div>
+  </div>
 </div>
