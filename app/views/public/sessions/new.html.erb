@@ -1,6 +1,9 @@
 <h2>ログイン</h2>
 
+会員の方はこちらからログイン
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="field">
     <%= f.label :"メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -12,9 +15,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <%= f.submit "ログイン",class: "btn btn-primary mb-4" %>
+
+<% end %></br>
 
 会員登録がお済でない方</br>
 

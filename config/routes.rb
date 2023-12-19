@@ -12,11 +12,11 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :items, only: [:index, :show]
-    resources :customers, only: [:edit, :update] 
       get "customers/unsubscribe" => "customers#unsubscribe"
       patch "customers/withdraw" => "customers#withdraw"
       get "customers/my_page" => "customers#show"
-    
+      get "customers/infomation/edit" => "customers#edit"
+      patch "customers/infomation" => "customers#update"
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete "/" => "cart_items#destroy_all"
