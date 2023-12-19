@@ -1,2 +1,37 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<h4>注文履歴詳細</h4>
+
+<div>
+  <h5>購入者</h5>
+  <%= link_to @order.name, admin_customers_path %>
+</div>
+
+<div>
+  <h5>注文日</h5>
+  <%=  %>
+</div>
+
+<div>
+  <h5>配送先</h5>
+  <%= #(@order.postal_code, @order.address, @order.name) %>
+</div>
+
+<div>
+  <h5>支払方法</h5>
+</div>
+
+<div>
+  <h5>注文ステータス</h5>
+  <%= f.submit "更新", class: "btn btn-success" %>
+</div>
+
+商品名
+単価（税込）
+数量
+小計
+製作ステータス
+
+更新ボタン
+
+商品合計
+送料
+請求合計
