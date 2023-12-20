@@ -62,10 +62,10 @@
           </tr>
           <tr>
             <th>お届け先</th>
-            <td>
-              <%= "〒" + @order_postal_code + ' ' + @order_address %></br>
-              <%= @order_name %>
-            </td>
+            <td class="col-8">〒
+            <%= @order.postal_code %>
+            <%= @order.address %><br>
+            <%= @order.name %>
           </tr>
         </tbody>
       <table>
