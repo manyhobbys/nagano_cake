@@ -13,7 +13,6 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    #@cart_item = current_customer.cart_item.new(cart_item_params)
     @cart_items = current_customer.cart_items.all
 
     # ダブりを調べる
@@ -21,10 +20,10 @@ class Public::CartItemsController < ApplicationController
     # 存在する場合は更新処理
     if double_cart_item
       # byebug
-      double_cart_item.update!(amount: double_cart_item.amount + @cart_item.amount)
+      double_cart_item.update(amount: double_cart_item.amount + @cart_item.amount)
       redirect_to cart_items_path
     else
-      if @cart_item.save!
+      if @cart_item.save
         redirect_to cart_items_path
       else
         render 'index'

@@ -2,6 +2,10 @@ class OrderDetail < ApplicationRecord
   belongs_to :item
   belongs_to :order
 
+  def add_tax_price
+    (self.price * 1.10).round
+  end
+
   def subtotal
     self.including_tax_price * self.amount
   end

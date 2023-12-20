@@ -54,7 +54,7 @@
     <% @order_details.each do |order_detail| %>
     <tr>
       <td><%= order_detail.item.name %></td>
-      <td><%= number_to_currency(order_detail.including_tax_price) %></td>
+      <td><%= number_to_currency(order_detail.add_tax_price) %></td>
       <td><%= order_detail.amount %></td>
       <td><%= order_detail.subtotal %></td>
       <td>
