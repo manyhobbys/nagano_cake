@@ -22,6 +22,10 @@ class Order < ApplicationRecord
     "〒#{self.postal_code} #{self.address}\n#{self.name}"
   end
 
+  def add_tax_price
+    (self.price * 1.10).round
+  end
+
   def total_paymen_sum
     self.total_payment + self.shipping_cost
   end
