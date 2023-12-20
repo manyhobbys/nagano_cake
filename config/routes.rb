@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       patch "customers/infomation" => "customers#update"
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
-        delete "/" => "cart_items#destroy_all"
+        delete "destroy_all" => "cart_items#destroy_all"
       end
     end
     resources :orders, only: [:new, :create, :index, :show] do
@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
 
- 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
