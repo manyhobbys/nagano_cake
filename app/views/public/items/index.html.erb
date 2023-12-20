@@ -18,13 +18,13 @@
           <% if item.is_active == true %>
             <p>¥ <%= item.price.to_s(:delimited) %></p>
           <% else %>
-            <p>販売停止中</p>
+            <p class="text-danger">販売停止中</p>
           <% end %>
         </div>
       </div>
     <% end %>
-    <div class="col d-flex justify-content-center">
-      <%= paginate @item %>
-    </div>
+  </div>
+  <div class="col d-flex justify-content-center">
+    <%= paginate @item %>
   </div>
 </div>
