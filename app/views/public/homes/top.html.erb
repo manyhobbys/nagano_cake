@@ -21,7 +21,7 @@
           <div>
             <p><%= item.name %></p>
             <% if item.is_active == true %>
-              <p><%= item.price %></p>
+              <p><%= item.price.to_s(:delimited) %></p>
             <% else %>
               <p>販売停止中</p>
             <% end %>
