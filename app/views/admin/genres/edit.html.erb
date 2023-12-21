@@ -1,10 +1,10 @@
 <div class="container">
-  <h4 class="title mx-3 my-2 bg-light">ジャンル編集</h4>
+  <h4 class="title mx-3 my-2 bg-light"><strong>ジャンル編集</strong></h4>
   <div class="row mb-5">
     <div class="col-lg-10 my-4">
       <%= form_with model: @genre, url: admin_genre_path, method: :patch, local: true do |f| %>
         <div class="field row">
-          <label for="inputName", class="col-lg-2 col-form-label">ジャンル名</label>
+          <label for="inputName", class="col-lg-2 col-form-label"><strong>ジャンル名</strong></label>
           <div class="col-lg-3">
             <%= f.text_field :name, class:'form-control', id:'inputName' %>
           </div>

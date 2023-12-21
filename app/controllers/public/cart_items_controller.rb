@@ -14,7 +14,6 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     @cart_items = current_customer.cart_items.all
-
     # ダブりを調べる
     double_cart_item = @cart_items.find_by(item_id: @cart_item.item_id)
     # 存在する場合は更新処理
