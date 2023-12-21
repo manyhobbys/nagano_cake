@@ -23,13 +23,19 @@
             </td>
             <td ><%= customers.email %></td>
             <td >
-              <%= customers.is_deleted %>
+              <% if customers.is_deleted %>
+                <p class="text-success"><strong>有効</strong></p>
+              <% else %>
+                <p class="text-danger"><strong>退会</strong></p>
+              <% end %>
             </td>
           </tr>
           <% end %>
         </tbody>
       </table>
-      <%= paginate @customers, class: "text-center" %>
+      <div class="col d-flex justify-content-center" >
+      <%= paginate @customers %>
+      </div>
     </div>
   </div>
 </div>
