@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-          <tr>
+          　<tr>
               <td ><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
               <td >
                 <%= order.customer.last_name %>
