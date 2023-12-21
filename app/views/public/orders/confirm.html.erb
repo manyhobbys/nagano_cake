@@ -20,7 +20,7 @@
               <%= image_tag cart_item.item.get_image(50,50) %>
               <%= cart_item.item.name %>
             </td>
-            <td><%= cart_item.item.including_tax_price.to_s(:dalimited) %></td>
+            <td><%= cart_item.item.add_tax_price.to_s(:dalimited) %></td>
             <td><%= cart_item.amount %></td>
             <td><%= cart_item.subtotal %></td>
           </tr>
