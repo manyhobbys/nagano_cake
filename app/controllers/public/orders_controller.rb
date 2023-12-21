@@ -14,7 +14,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
       @order_detail.amount = cart_item.amount
-      @order_detail.price = cart_item.item.with_tax_price
+      @order_detail.price = cart_item.item.add_tax_price
       @order_detail.save
     end
     current_customer.cart_items.destroy_all
@@ -27,25 +27,33 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.order_details.all
+    @order_details = @order.order_details.all
+    @total_item_amount = @order_details.sum { |order_detail| order_detail.subtotal }
+    @order = Order.find(params[:id])
   end
 
   def confirm
+
     @order = Order.new(order_params)
+    @cart_items = current_customer.cart_items
+    @order.customer_id = current_customer.id
+    @total = 0
+    @order.shipping_cost = 800
+    @order.total_payment = params[:order][:payment_method].to_i
+
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
     elsif params[:order][:select_address] == "1"
-      @address = Adress.find(params[:order][:address_id])
+      @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
     else
       render 'new'
     end
-    @cart_items = current_customer.cart_items.all
-    @order.customer_id = current_customer.id
-    @total = 0
   end
 
   def thanks
