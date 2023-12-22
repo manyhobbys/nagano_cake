@@ -16,7 +16,9 @@
         <div class="container">
           <div class = "row">
             <div class = "col-xs-6">
-          <%= link_to "ロゴ", root_path %>
+          <%= link_to root_path do %>
+            <%= image_tag '6F21E11E-65B0-42F1-BD63-1DCA7EB7A592.jpg' ,size: "200x100" %>
+          <% end %>
           <% if customer_signed_in? %>
               <p>ようこそ<%= current_customer.last_name %>さん！</p>
             <% end %>
