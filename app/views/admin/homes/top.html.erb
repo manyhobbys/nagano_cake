@@ -30,7 +30,9 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @orders, class: "text-center" %>
+      <div class="col d-flex justify-content-center">
+        <%= paginate @orders %>
+      </div>
     </div>
   </div>
 </div>
