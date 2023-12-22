@@ -1,11 +1,11 @@
 <div class="container">
-  <h5 class="title">注文情報確認</h5>
+  <h4 class="title"><strong>注文情報確認</strong></h4>
   <div class="row">
     <div class="col">
 
-      <table>
+      <table class="table table-bordered mt-3">
         <thead>
-          </tr>
+          <tr class="bg-light">
             <th>商品名</th>
             <th>単価（税込）</th>
             <th>数量</th>
@@ -17,7 +17,7 @@
           <% @cart_items.each do |cart_item| %>
           <tr>
             <td>
-              <%= image_tag cart_item.item.get_image(50,50) %>
+              <%= image_tag cart_item.item.get_image(70,70) %>
               <%= cart_item.item.name %>
             </td>
             <td><%= cart_item.item.add_tax_price.to_s(:dalimited) %></td>
@@ -31,19 +31,18 @@
     </div>
 
     <div class="col">
-      <table>
+      <table class="table table-bordered mt-3">
         <tbody>
           <tr>
-            <th>送料</th>
-            <% @order.shipping_cost = 800 %>
-            <td><% @order.shipping_cost %></td>
+            <th class="bg-light">送料</th>
+            <td><%= @order.shipping_cost %></td>
           </tr>
           <tr>
-            <th>商品合計</th>
+            <th class="bg-light">商品合計</th>
             <td><%= @total %></td>
           </tr>
           <tr>
-            <th>請求金額</th>
+            <th class="bg-light">請求金額</th>
             <% @order.total_payment = @order.shipping_cost + @total %>
             <td><%= @order.total_payment %></td>
           </tr>
@@ -54,7 +53,7 @@
 
   <div class="row">
     <div class="col">
-      <table>
+      <table class="mt-3">
         <tbody>
           <tr>
             <th>支払方法</th>

@@ -26,8 +26,17 @@ class Order < ApplicationRecord
     (self.price * 1.10).round
   end
 
+  def subtotal # 小計
+    self.add_tax_price * self.amount
+  end
+
   def total_paymen_sum
     self.total_payment + self.shipping_cost
   end
 
+  def total_item_amount #合計金額
+   order_details.sum { |order_detail| order_detail.subtotal }
+  end
+  # ブロック変数 => 繰り返すときに使用。
+  #order_detailsに紐づくすべてのアイテム合計金額を出したいのでブロック変数使用。
 end

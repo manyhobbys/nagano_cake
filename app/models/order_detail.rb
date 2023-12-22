@@ -7,7 +7,7 @@ class OrderDetail < ApplicationRecord
   end
 
   def subtotal
-    self.including_tax_price * self.amount
+    self.item.add_tax_price * self.amount
   end
 
 # 0:製作不可, 1:製作待ち, 2:製作中, 3:製作完了
