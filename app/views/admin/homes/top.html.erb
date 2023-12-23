@@ -14,10 +14,8 @@
         <tbody>
           <% @orders.each do |order| %>
           　<tr>
-          　   <td>
-                <%= link_to admin_order_path(order.id) do %>
+              <td>
                 <%= order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-                <% end %>
               </td>
               <td>
                 <%= order.customer.last_name %>
