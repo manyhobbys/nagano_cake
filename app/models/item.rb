@@ -15,7 +15,11 @@ class Item < ApplicationRecord
     image.variant(gravity: :center, resize:"#{width}x#{height}^", crop:"#{width}x#{height}+0+0").processed
   end
 
-  def add_tax_price
+  # def add_tax_price
+  #   (self.price * 1.10).round
+  # end
+  
+  def with_tax_price
     (self.price * 1.10).round
   end
 
